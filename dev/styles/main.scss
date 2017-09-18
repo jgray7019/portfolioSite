@@ -1,3 +1,510 @@
+@import 'partials/variables';
+@import 'partials/global';
+@import 'partials/mixins';
+@import 'partials/setup';
+@import 'partials/hamburger';
+
 body {
-	background: thistle;
+	// background: thistle;
+	color: $black;
 }
+
+// header 
+header {
+	min-height: calc(100vh - 8.6rem);
+	.header__wrapper{
+		width: 90%;
+		margin: 0 auto;
+		@include respond-to ('xlarge') {
+			width: 70%
+		}
+	}
+}
+
+.header__navContainer {
+	padding: 2.5rem 0;
+	position: fixed;
+	top: 0;
+	background: white;
+	width: 100%;
+	z-index: 9999;
+}
+
+.header__navContainer .header__wrapper {
+	display: flex;
+	// align-items: center;
+	// align-content: center;
+	justify-content: space-between;
+}
+
+.header__nav {
+	display: flex;
+	align-items: center;
+}
+
+.header__nav ul {
+	display: flex;
+	align-items: center;
+	@include respond-to ('medium') {
+		display: none;
+	}
+}
+
+.header__nav li {
+	display: flex;
+	align-items: center;
+	padding-left: 6rem;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	a {
+		color: $black;
+	}
+}
+
+.link-hover::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $black;
+    transition: width .3s;
+}
+
+.link-hover:hover::after{
+    width: 100%;
+    @include respond-to ('medium') {
+    	width: 0;
+    }
+}
+
+.header__image {
+	background: linear-gradient( rgba(238, 238, 238,0.5), 100%, rgba(0,0,0,0)),url(../assets/hero7.jpg);
+	background-size: cover;
+	margin-top: 8.6rem;
+	background-position: top ;
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.header__image h1 {
+	font-size: 10rem;
+	font-family: $titleFont;
+	text-transform: lowercase;
+	font-weight: 700;
+	@include respond-to ('medium') {
+		font-size: 8rem;
+	}
+	@include respond-to ('small') {
+		font-size: 5rem;
+	}
+}
+
+.header__image h2 {
+	font-size: 1.8rem;
+	padding: 1.5rem 0 2rem 0;
+	letter-spacing: .1rem;
+	text-align: center;
+}
+
+.header__btn {
+	border: none;
+	background: $black;
+	font-size: 1.2rem;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	padding: 1.5rem 2.5rem;
+	transition: all 0.3s ease;
+	&:hover {
+		 box-shadow: inset 0 0 0 3px white;
+	}
+}
+
+// about me
+.aboutMe {
+	min-height: 110vh;
+	padding-bottom: 10rem 0;
+	display: flex;
+	align-items: center;
+	@include respond-to ('medium') {
+		// padding: 5rem 0 10rem 0;
+	}
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		@include respond-to ('medium') {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
+
+.aboutMe__textContainer {
+	width: 43%;
+	@include respond-to ('medium') {
+		width: 80%;
+	}
+}
+
+h3 {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	position: relative;
+	a {
+		color: $black;
+	}
+}
+
+.section__title {
+	padding-bottom: 6rem;
+	display: inline-block;
+	@include respond-to('medium') {
+		padding-bottom: 3rem;
+	}
+}
+
+.section__title::before {
+	content: '';
+	position: absolute;
+	border-bottom: 1px $black solid;
+	width: 100%;
+	bottom: 4rem;
+	@include respond-to ('medium') {
+		bottom: 1.5rem;
+	}
+}
+
+h4 {
+	font-size: 3.2rem;
+	font-family: $titleFont;
+		@include respond-to ('medium') {
+		font-size: 2.8rem;
+	}
+}
+
+.description {
+	font-size: 1.2rem;
+	color: $medGrey;
+	letter-spacing: .1rem;
+	line-height: 2.5rem;
+}
+
+.aboutMe__textContainer p {
+	padding-top: 4rem;
+	@include respond-to ('medium') {
+		padding-top: 1.5rem;
+	}
+}
+
+.aboutMe__imagesContainer {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	@include respond-to ('medium') {
+		width: 80%;
+		margin-top: 10rem;
+		// align-items: center;
+		// justify-content: center;
+	}
+}
+
+.aboutMe__backImage {
+	width: 66.67%;
+	position: relative;
+	float: right;
+	@include respond-to ('medium') {
+		width: 85%;
+	}
+}
+
+.aboutMe__frontImage {
+	width: 100%;
+	position: absolute;
+	top: -8rem;
+	right: 15rem;
+	z-index: -1;
+	@include respond-to ('medium') {
+		right: 7rem;
+	}
+	@include respond-to ('small') {
+		right: 4rem;
+		top: -5rem;
+	}
+}
+
+// projects
+
+
+.projects {
+	background: $grey;
+	padding: 12rem 0;
+	@include respond-to ('medium') {
+		padding: 12rem 0 6rem 0;
+	}
+}
+
+.projects .section__title, .skills .section__title {
+	margin-bottom: 3rem;
+}
+
+.projects__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: space-between;
+	margin-bottom: 10rem;
+	&:nth-of-type(even) {
+		flex-direction: row-reverse;
+		@include respond-to ('medium') {
+			flex-direction: column;
+		}
+	}
+	@include respond-to ('medium') {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.projects__imageContainer {
+	width: 50%;
+	position: relative;
+	line-height: 0;
+	transition: all 0.3s ease;
+	align-self: center;
+	@include respond-to ('medium') {
+		width: 80%;
+		margin-bottom: 3rem;
+	}
+}
+
+.projects__container:nth-of-type(odd) .projects__imageContainer {
+ 	box-shadow: -10px -10px 0px 0px rgba(255,255,255,1);
+}
+
+.projects__container:nth-of-type(even) .projects__imageContainer {
+ 	box-shadow: 10px -10px 0px 0px rgba(255,255,255,1);
+}
+
+.projects__imageContainer::after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(34, 34, 34, 0.5);
+	transition: all 0.3s ease;
+}
+
+.projects__imageContainer:hover::after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(34, 34, 34, 0.0);
+	// transition: all 0.3s ease;
+}
+
+.projects__descriptionContainer {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	@include respond-to ('medium') {
+		width: 80%;
+	}
+}
+
+.projects__descriptionContainer h4 {
+	padding-top: 1.5rem ;
+	position: relative;
+	&::before {
+		content: '';
+		width: 8rem;
+		border-bottom: 1px solid $black;
+		position: absolute;
+		top: 0;
+	}
+	@include respond-to ('medium') {
+		padding-bottom: 1.5rem;
+	}
+}
+
+.projects__innerContainer {
+	position: relative;
+	padding-left: 6rem;
+	&::before {
+		content: '';
+		width: 5rem;
+		border-bottom: 1px solid $black;
+		position: absolute;
+		top: .8rem;
+		left: 0;
+		@include respond-to('medium') {
+			top: 1.7rem;
+		}
+	}
+}
+
+.projects__innerContainer .description {
+	padding-top: 2rem;
+	@include respond-to ('medium') {
+		padding: 1.5rem 0;
+	}
+}
+
+.projects__descriptionContainer h3 {
+	@include respond-to ('medium') {
+		padding: 1rem 0;
+	}
+}
+
+// qualifications
+.skills {
+	padding: 7rem 0;
+}
+
+.icon__Container{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.icon {
+	flex-basis: 20%;
+	text-align: center;
+	font-size: 6rem;
+	&:nth-of-type(-n+5) {
+		margin-bottom: 7rem;
+	}
+}
+
+.icon__svg {
+	width: 4.3rem;
+	margin: 0 auto;
+}
+
+// footer
+
+footer {
+	background: $black;
+	color: $medGrey;
+}
+
+.footer__mainContent {
+	padding: 8rem 0;
+}
+
+.footer__mainContent .wrapper {
+	display: flex;
+	justify-content: space-between;
+	h3 {
+		color: white;
+		padding-bottom: 4rem;
+	}
+	@include respond-to ('small') {
+		justify-content: center;
+	}
+}
+
+.footer__contactContainer ul li {
+	padding-bottom: 2rem;
+	a i {
+		padding-right: 1.5rem;
+		color: white;
+	}
+}
+
+.footer__contactLink {
+	color: $medGrey;
+	font-size: 1.5rem;
+}
+
+.footer__contactLink::after{
+    content: '';
+    display: block;
+    width: 0;
+    // margin-left: 1rem;
+    height: 2px;
+    margin-top: 2px;
+    background: $medGrey;
+    transition: width .3s;
+}
+
+.footer__contactLink:hover::after {
+    width: 100%;
+}
+
+.footer__contactFormContainer {
+	width: 60%;
+	@include respond-to ('small') {
+		display: none;
+	}
+}
+
+.contactForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.contactForm__inputs {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 2rem;
+}
+
+.contactForm__inputs input, textarea{
+	border: none;
+	background: #333333;
+	color: $medGrey;
+	font-size: 1.5rem;
+	padding-left: 2rem;
+}
+
+.contactForm__inputs input{
+	width: 48%;
+	height: 4.5rem;
+}
+
+textarea {
+	width: 100%;
+	padding-top: 1.5rem;
+}
+
+.submitInput {
+	border: none;
+	background: white;
+	color: $black;
+	padding: 1.5rem 3rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 2rem;
+	transition: all 0.3s ease;
+	&:hover {
+		box-shadow: inset 0 0 0 3px $medGrey;
+		color: $medGrey;
+	}
+}
+
+.footer__subContent {
+	background: white;
+	text-align: center;
+	padding: 2rem 0;
+}
+
+
+

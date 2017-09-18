@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: $mainFont;
+}
+
+.wrapper {
+	max-width: 70%;
+	margin: 0 auto;
+	@include respond-to ('large') {
+		max-width: 90%;
+	}
+	@include respond-to ('xlarge') {
+		max-width: 50%;
+	}
+}
+
+img {
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+	margin: 0;
+	font-weight: 400;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	padding: 1rem 0;
+}
+
+textarea, input, button {
+	transition: outline 0.3s ease;
+	&:focus {
+		outline: 2px solid $medGrey;
+	}
+}

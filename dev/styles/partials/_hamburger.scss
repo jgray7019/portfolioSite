@@ -1,0 +1,64 @@
+@import 'mixins';
+@import 'variables';
+
+.header__nav ul.show {
+	@include respond-to ('medium') {
+		display: flex;
+	}
+}
+
+.hamburger {
+	display: none;
+	&:hover {
+		color: $medGrey;
+	}
+	@include respond-to ('medium') {
+		display: block;
+		text-align: right;
+		font-size: 3rem;
+	}
+}
+
+.overlay.header__nav {
+	display: block;
+	position: absolute;
+	top: 9px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: $black;
+}
+
+.overlay ul {
+	flex-direction: column;
+	align-items: flex-end;
+	background: white;
+	padding: 3rem 0;
+	li {
+		width: 90%;
+		margin: 0 auto;
+		text-align: right;
+	}
+}
+
+.overlay ul a {
+	font-size: 3rem;
+	font-family: $titleFont;
+	text-align: right;
+	width: 90%;
+	margin: 0 auto;
+	&:hover {
+		color: $medGrey;
+	}
+}
+
+.overlay .hamburger {
+	display: block;
+	font-size: 3rem;
+	text-align: right;
+	margin-right: 5%;
+	margin-top: 1.5rem;
+	&:hover {
+		color: $medGrey;
+	}
+}
