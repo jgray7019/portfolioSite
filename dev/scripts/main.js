@@ -44,6 +44,14 @@ portfolio.scroll = function() {
             'slow');
    });
 
+   $('.skills-scroll').on('click', function(e) {
+       e.preventDefault;
+
+       $('html,body').animate({
+            scrollTop: $(".skills").offset().top},
+            'slow');
+   });
+
    $('.contact-scroll').on('click', function(e) {
        e.preventDefault;
 
