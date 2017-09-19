@@ -36,16 +36,17 @@
 	padding: 3rem 0;
 	li {
 		width: 90%;
-		margin: 0 auto;
+		// margin: 0 auto;
 		text-align: right;
+		text-transform: lowercase;
 	}
 }
 
 .overlay ul a {
-	font-size: 3rem;
+	font-size: 2rem;
 	font-family: $titleFont;
 	text-align: right;
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 	&:hover {
 		color: $medGrey;
