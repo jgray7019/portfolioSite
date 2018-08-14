@@ -5,17 +5,29 @@ const portfolio = {};
 portfolio.init = function () {
 	portfolio.consoleWelcome();
 	portfolio.scroll();
-	portfolio.menu();
+  portfolio.menu();
+  portfolio.menuLinkClick();
+
 };
 
 portfolio.menu = function() {
-   	$('.hamburger').on('click', function(){
-   		// toggle class overlay on the menu
-   		$('.header__nav').toggleClass('overlay');
+    $('.hamburger').on('click', function(){
+      // toggle class overlay on the menu
+        $('.header__nav').toggleClass('overlay');
 
-   		// toggle class show on the ul inside of the menu
-   		$('.header__nav ul').toggleClass('show');
+        // toggle class show on the ul inside of the menu
+        $('.header__nav ul').toggleClass('show');
    	})
+};
+
+portfolio.menuLinkClick = function() {
+    $('.header__nav li').on('click', function(){
+
+        $('.header__nav').removeClass('overlay');
+
+        $('.header__nav ul').removeClass('show');
+
+    })
 };
 
 portfolio.scroll = function() {
@@ -24,7 +36,7 @@ portfolio.scroll = function() {
     e.preventDefault;
 
    	   $('html,body').animate({
-         scrollTop: $("header").offset().top},
+         scrollTop: $("html").offset().top},
          'slow');
     });
 

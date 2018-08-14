@@ -11,7 +11,7 @@ header {
 		width: 90%;
 		margin: 0 auto;
 		@include respond-to ('xlarge') {
-			width: 70%
+			width: 70%;
 		}
 	}
 }
@@ -72,9 +72,6 @@ header {
 
 .link-hover:hover::after{
     width: 100%;
-    @include respond-to ('medium') {
-    	width: 0;
-    }
 }
 
 .header__image {

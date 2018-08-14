@@ -9,6 +9,7 @@
 
 .hamburger {
 	display: none;
+	  transition: all linear .3s;
 	&:hover {
 		color: $medGrey;
 	}
@@ -22,7 +23,7 @@
 .overlay.header__nav {
 	display: block;
 	position: absolute;
-	top: 9px;
+	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -34,11 +35,14 @@
 	align-items: flex-end;
 	background: white;
 	padding: 3rem 0;
+
 	li {
 		width: 90%;
-		// margin: 0 auto;
 		text-align: right;
 		text-transform: lowercase;
+	}
+	a::after {
+		display: none;
 	}
 }
 
